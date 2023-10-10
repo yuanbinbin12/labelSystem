@@ -89,6 +89,7 @@ public class mytest {
         StudentLoginMapper studentLoginMapper = (StudentLoginMapper) ApplicationContext.getBean("StudentLoginMapperImpl");
         Student student = studentLoginMapper.GetQueryStudentName("fx", 2);
         System.out.println("修改master分支3");
+        System.out.println("修改main分支3");
         System.out.println(student);
     }
 
