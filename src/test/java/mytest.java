@@ -43,6 +43,7 @@ public class mytest {
         int i = rootLoginMapper.AddUserForRoot(root);
         if (i != 0) {
             System.out.println("插入成功");
+            System.out.println("hello，修改了");
         }
     }
 
