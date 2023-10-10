@@ -1,0 +1,74 @@
+.lb11
+{
+	position: relative;
+	background: rgb(34,34,34);
+	width:1800px;
+	height: 300px;
+	margin-top: 50px;
+}
+.lb12
+{
+	position: relative;
+	margin-right: 15px;
+	left: 500px;
+	width:900px;
+	height: 400px;
+
+	transform-style: preserve-3d;
+	-webkit-transform-style:preserve-3d;
+	transition: 0.5s;
+	-webkit-transition:  0.5s;
+	transform-origin: 38.5% 50% -725px;
+	-webkit-transform-origin: 38.5% 50% -725px;
+	transform:  rotateY(0.8976rad);
+	-webkit-transform: rotateY(0.8976rad);
+}
+.lb12>img
+{
+	display: inline-block;
+	width: 900px;
+	 height: 400px;
+	position: absolute;
+	transform-origin: 50% 50% -725px;
+	-webkit-transform-origin: 50% 50% -725px;
+}
+
+.lb12>img:nth-child(1)
+{
+
+}
+.lb12>img:nth-child(2)
+{
+	transform: rotateY(0.8976rad);
+	-webkit-transform: rotateY(0.8976rad);
+
+}
+.lb12>img:nth-child(3)
+{
+	transform: rotateY(1.7951rad);
+	-webkit-transform: rotateY(1.7951rad);
+
+}
+.lb12>img:nth-child(4)
+{
+	transform: rotateY(2.6928rad);
+	-webkit-transform: rotateY(2.6928rad);
+
+}
+.lb12>img:nth-child(5)
+{
+	transform: rotateY(3.5903rad);
+	-webkit-transform: rotateY(3.5903rad);
+
+}
+.lb12>img:nth-child(6)
+{
+	transform: rotateY(4.4880rad);
+	-webkit-transform: rotateY(4.4880rad);
+
+}
+.lb12>img:nth-child(7)
+{
+	transform: rotateY(5.3856rad);
+	-webkit-transform: rotateY(5.3856rad);
+}

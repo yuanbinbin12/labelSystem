@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+    <context:component-scan base-package="com.ybb.Service"/>
+    <context:component-scan base-package="com.ybb.pojo"/>
+    <context:component-scan base-package="com.ybb.Mapper"/>
+    <context:annotation-config/>
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <!--数据源DateSource使用Spring的mybatis的数据源
+    我们这里直接用Spring1的JDBC
+    -->
+    <bean id="dateSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/laboratory_management?serverTimezone=UTC&amp;characterEncoding=utf8&amp;useSLL=false&amp;useUnicode=true"/>
+        <property name="username" value="root"/>
+        <property name="password" value="123456"/>
+    </bean>
+    <!--sqlSessionFactory-->
+    <bean name="sqlSessionFactoryByStudent" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dateSource"/>
+        <!--绑定Mybatis配置         最好绑定-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <property name="mapperLocations">
+                <value>classpath:com/ybb/Mapper/Student/StudentLoginMapper.xml</value>
+        </property>
+        <property name="typeAliasesPackage" value="com.ybb"/>
+    </bean>
+    <bean name="sqlSessionFactoryByRoot" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dateSource"/>
+        <!--绑定Mybatis配置         最好绑定-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <property name="mapperLocations">
+            <value>classpath:com/ybb/Mapper/Root/RootLoginMapper.xml</value>
+        </property>
+        <property name="typeAliasesPackage" value="com.ybb"/>
+    </bean>
+    <bean name="sqlSessionFactoryByTeacher" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dateSource"/>
+        <!--绑定Mybatis配置         最好绑定-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <property name="mapperLocations">
+            <value>classpath:com/ybb/Mapper/Teacher/TeacherLoginMapper.xml</value>
+        </property>
+        <property name="typeAliasesPackage" value="com.ybb"/>
+    </bean>
+    <bean name="sqlSessionFactoryByUser" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dateSource"/>
+        <!--绑定Mybatis配置         最好绑定-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <property name="mapperLocations">
+            <value>classpath:com/ybb/Mapper/User/UserLoginMapper.xml</value>
+        </property>
+        <property name="typeAliasesPackage" value="com.ybb"/>
+    </bean>
+    <bean name="sqlSessionFactoryByLabel" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dateSource"/>
+        <!--绑定Mybatis配置         最好绑定-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <property name="mapperLocations">
+            <value>classpath:com/ybb/Mapper/labelStatus/labelStatusMapper.xml</value>
+        </property>
+        <property name="typeAliasesPackage" value="com.ybb"/>
+    </bean>
+    <bean name="sqlSessionFactoryByTimeTable" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dateSource"/>
+        <!--绑定Mybatis配置         最好绑定-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <property name="mapperLocations">
+            <value>classpath:com/ybb/Mapper/timeTable/timeTableMapper.xml</value>
+        </property>
+        <property name="typeAliasesPackage" value="com.ybb"/>
+    </bean>
+    <bean name="sqlSessionFactoryByInformation" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dateSource"/>
+        <!--绑定Mybatis配置         最好绑定-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <property name="mapperLocations">
+            <value>classpath:com/ybb/Mapper/Information/InformationMapper.xml</value>
+        </property>
+        <property name="typeAliasesPackage" value="com.ybb"/>
+    </bean>
+    <bean name="sqlSessionByStudent" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactoryByStudent"/>
+        <!--只能用构造器注入因为sqlSessionTemplate没有set方法-->
+    </bean>
+    <bean name="sqlSessionByRoot" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactoryByRoot"/>
+        <!--只能用构造器注入因为sqlSessionTemplate没有set方法-->
+    </bean>
+
+    <bean name="sqlSessionByTeacher" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactoryByTeacher"/>
+        <!--只能用构造器注入因为sqlSessionTemplate没有set方法-->
+    </bean>
+</beans>

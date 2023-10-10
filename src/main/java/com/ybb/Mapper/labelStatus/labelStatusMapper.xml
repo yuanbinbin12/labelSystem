@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ybb.Mapper.labelStatus.labelStatusMapper">
+    <update id="changeLabelById">
+        update labelstatus set cid=#{cid} where labelId=#{labelId}
+    </update>
+    <select id="getLabelList" resultType="labelStatus">
+        select * from labelstatus
+    </select>
+    <select id="getLabelById" resultType="labelStatus">
+        select * from labelstatus where labelId=#{labelId}
+    </select>
+    <insert id="AddLabel" parameterType="labelStatus">
+        insert into labelstatus (labelId,labelName,cid) vae (#{labelId},#{labelName},#{cid})
+    </insert>
+    <delete id="DeleteLabel">
+        delete from labelstatus where labelId=#{labelId} and labelName=#{labelName}
+    </delete>
+    <select id="getClassCourseAndLabel" resultMap="CourseAndLabel">
+        select labelId, labelName,l.cid lcid, c.className cclassName from labelstatus l
+         left join class_course c
+         on l.cid=c.cid
+    </select>
+<resultMap id="CourseAndLabel" type="labelStatus1">
+    <result property="labelId" column="labelId"/>
+    <result property="labelName" column="labelName"/>
+    <result property="cid" column="lcid"/>
+    <result property="className1" column="cclassName"/>
+</resultMap>
+    <insert id="setLabelAppoint" parameterType="labelAppoint">
+        insert into `laboratory_appointment` (labid,startTime,endTime,UserType,state ,UserName,ID) values (#{labId},#{startTime},#{endTime},#{UserType},#{state},#{UserName},UUID())
+    </insert>
+    <select id="selectLabAppointForUserName" resultType="labelAppoint1">
+      select startTime,endTime,UserType,state ,UserName,ID,advice,labelName labname from `laboratory_appointment` la
+          inner join `labelstatus` ls
+          on ls.labelId=la.labid
+        <where>
+            <if test="UserName!=null">
+             UserName=#{UserName}
+            </if>
+            <if test="UserType!=null">
+               and UserType=#{UserType}
+            </if>
+        </where>
+    </select>
+    <update id="updateAppoint">
+        update `laboratory_appointment`
+        <set>
+            <if test="state!=null">
+                state=#{state},
+            </if>
+        <if test="advice!=null">
+            advice=#{advice}
+        </if>
+        </set>
+        where ID=#{ID}
+    </update>
+    <insert id="">
+        insert into note (id,UserName,cid,userType,usetime) value(#{id},#{UserName},#{cid},#{userType},#{usetime})
+    </insert>
+</mapper>

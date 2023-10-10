@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ybb.Mapper.Student.StudentLoginMapper">
+    <select id="GetQueryStudentName"  resultType="Student">
+        select * from student where UserName=#{UserName} and id=#{id}
+    </select>
+    <insert id="AddUserForStudent" parameterType="Student">
+        insert into student (id,Root,`UserName`,pwd,tel,`dorm_Num`,tid,cid) values (#{id},#{Root},#{UserName},#{pwd},#{tel},#{dorm_Num},#{tid},#{cid})
+    </insert>
+    <update id="UpdateForStudent" parameterType="Student">
+        update student
+        <set>
+            <if test="pwd!=null">
+                pwd=#{pwd},
+            </if>
+            <if test="tel!=null">
+                tel=#{tel},
+            </if>
+        <if test="dorm_Num!=null">
+            dorm_Num=#{drom_Num},
+        </if>
+        <if test="tid!=null">
+            tid=#{tid},
+        </if>
+        <if test="cid!=null">
+            cid=#{cid}
+        </if>
+        </set>
+        where UserName=#{UserName} and id=#{id}
+    </update>
+    <delete id="DeleteForStudent" parameterType="Student">
+        delete from student where id=#{id} and UserName=#{UserName}
+    </delete>
+    <select id="GetQueryAllStudent" resultType="Student">
+        select * from student
+    </select>
+    <select id="getAllStudentAndTeacher" resultMap="TeacherAndStudent">
+        select s.id sid,s.Root sRoot,s.UserName susername, s.tel stel,s.pwd spwd,dorm_Num,tid,cid ,t.root troot,t.UserName tname from student s
+        inner join teacher t
+        on s.tid=t.id
+    </select>
+    <select id="getAllTeacherInStudentById" resultMap="TeacherAndStudent">
+        select s.id sid,s.Root sRoot,s.UserName susername, s.tel stel,s.pwd spwd,dorm_Num,tid,cid,t.root troot,t.UserName tname from student s
+        inner join teacher t
+        on s.tid=t.id
+        WHERE t.id=#{id}
+    </select>
+    <select id="getClassInStudentAll" resultMap="ClassInStudent">
+        SELECT id,Root,userName,pwd,tel,dorm_Num,s.tid stid,s.cid scid,c.className cclassName FROM student s
+        INNER JOIN class_course c
+        ON c.cid=s.cid
+    </select>
+    <select id="getClassInStudentById" resultMap="ClassInStudent">
+        SELECT id,Root,userName,pwd,tel,dorm_Num,s.tid stid,s.cid scid,c.className cclassName FROM student s
+        INNER JOIN class_course c
+        ON c.cid=s.cid
+        where s.cid=${cid}
+    </select>
+    <resultMap id="ClassInStudent" type="ClassName2">
+        <result column="cclassName" property="className"/>
+        <collection property="students" ofType="Student">
+            <result property="id" column="id"/>
+            <result property="dorm_Num" column="dorm_Num"/>
+            <result column="userName" property="userName"/>
+            <result column="tel" property="tel"/>
+            <result property="cid" column="scid"/>
+        </collection>
+    </resultMap>
+    <resultMap id="TeacherInStudent" type="Student">
+        <result property="id" column="sid"/>
+        <result property="Root" column="sRoot"/>
+        <result property="UserName" column="susername"/>
+        <result property="tel" column="stel"/>
+        <result property="pwd" column="spwd"/>
+        <result property="tid" column="tid"/>
+        <result property="cid" column="cid"/>
+    </resultMap>
+    <resultMap id="TeacherAndStudent" type="student1">
+        <result property="id" column="sid"/>
+        <result property="Root" column="sRoot"/>
+        <result property="UserName" column="susername"/>
+
+        <result property="tel" column="stel"/>
+        <result property="pwd" column="spwd"/>
+        <result property="tid" column="tid"/>
+        <result property="cid" column="cid"/>
+        <association property="teachers" javaType="Teacher2">
+            <result property="Root" column="troot"/>
+            <result column="tname" property="UserName"/>
+        </association>
+    </resultMap>
+</mapper>

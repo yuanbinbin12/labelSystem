@@ -1,0 +1,135 @@
+a
+{
+    color: #999999;
+}
+a:hover
+{
+    color: red;
+}
+.logo
+{
+    margin-left: 70px;
+    margin-top: 50px;
+    width: 100px;
+}
+.box1
+{
+    display: flex;
+    flex-direction: row;
+    width: 1400px;
+}
+.main1
+{
+    flex: 3;
+
+}
+.main1>div
+{
+    padding-left: 20px;
+    color: white;
+    background: rgb(34,54,66);
+    width: 300px;
+    height: 200px;
+    font-size: 35px;
+    border-bottom: 1px black solid;
+}
+.main1>ul
+{
+    width: 320px;
+    background: rgb(34,54,66);
+    font-size: 20px;
+    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+}
+.main1>ul>li
+{
+    background: rgb(46,64,81);
+    padding: 20px 0px 20px 30px;
+}
+.main1>ul>li>span
+{
+    float: right;
+    margin-right: 20px;
+}
+.main2
+{
+    flex: 11;
+}
+.span1
+{
+    margin-top: 40px;
+    display: inline-block;
+    width: 50px;
+    height: 45px;
+    border-radius: 10px 10px;
+    background: url("../img/backIcon.jpg") no-repeat -180px -180px;
+}
+.main2>div
+{
+    background-color: #999999;
+    border-bottom: 1px black solid;
+    height: 100px;
+
+
+}
+.main2>div>div
+{
+
+    float: right;
+    display: inline-block;
+    margin-right: 50px;
+    font-size: 20px;
+
+
+}
+.span2
+{
+    position: relative;
+    top: 20px;
+    margin-top: 20px;
+    display: inline-block;
+    width: 50px;
+    height: 45px;
+    border-radius: 10px 10px;
+    background: url("../img/backIcon.jpg") no-repeat -557px -662px;
+}
+.span3
+{
+    margin-left: 15px;
+    position: relative;
+    top: 20px;
+    margin-top: 20px;
+    display: inline-block;
+    width: 50px;
+    height: 45px;
+    border-radius: 10px 10px;
+    background: url("../img/backIcon.jpg") no-repeat -612px -505px;
+}
+.span4
+{
+    margin-left: 15px;
+    position: relative;
+    top: 20px;
+    margin-top: 20px;
+    display: inline-block;
+    width: 50px;
+    height: 45px;
+    border-radius: 10px 10px;
+    background: url("../img/backIcon.jpg") no-repeat -126px -180px;
+}
+.main3
+{
+    position: absolute;
+    top: 100px;
+    left: 320px;
+    width: 1180px;
+    height: 630px;
+}
+.main3>span
+{
+    display: block;
+    width: 400px;
+    height: 300px;
+    font-size: 40px;
+    line-height: 700px;
+    margin: auto auto;
+}

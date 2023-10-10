@@ -1,0 +1,234 @@
+header
+{
+	display: flex;
+	height: 400px;
+	justify-content: center;
+	flex-direction: column;
+	position: relative;
+	background-color: rgb(44,53,64);
+}
+header>div:first-child
+{
+	width: 1915px;
+	height: 60px;
+	position: absolute;
+	top: 0px;
+	z-index: 1;
+	
+	background-color: rgb(34,34,34);
+	color: rgb(164,164,164);
+	font-size: 20px;
+}
+header>div:last-child
+{
+	flex: 20;
+}
+header>div:first-child>ul
+{
+	width: 1500px;
+	margin: auto;
+	line-height: 60px;
+}
+header>div:first-child>ul>li
+{
+	padding: 0px 25px;
+}
+header li
+{
+	display: inline-block;
+	padding: 0px;
+	margin: 0px;
+}
+.div1 div:not(.box1)
+{
+	position: absolute;
+	display: none;
+	left:0px;
+	color: white;
+	font-size: 15px;
+	margin-top: 0px;
+	height:30px;
+	width: 1700px;
+	margin-left: 0px;
+	background-color: red;
+	line-height: 30px;
+}
+.div1 div ul
+{
+	margin-left: 220px;
+}
+.div1 div ul li
+{
+	padding: 0px 20px;
+}
+.box1
+{
+	display: none;
+	font-size: 15px;
+	position: absolute;
+	left: 1290px;
+	width: 200px;
+	padding-left: 60px;
+	top: 50px;
+	background-color: rgb(1,1,1);
+}
+.text
+{
+	line-height: 30px;
+	border-radius: 50px;
+	padding-left:40px ;
+	width: 150px;
+	outline: none;
+}
+.div2
+{
+	position: absolute;
+	z-index: 0;
+	top:60px;
+	left: 100px;
+	width: 1700px;
+	height: 336px;
+}
+.div2>img
+{
+	position: absolute;
+	width: auto;
+	height: auto;
+	display: none;
+}
+.main1
+{
+	margin: 30px auto 0px auto;
+}
+.main1>font
+{
+	display:block;
+	width: 100px;
+	font-size: 25px;
+	font-weight: 700;
+	margin:auto;
+}
+.main1>ul
+{
+	display: block;
+	width: 420px;
+	margin: auto;
+}
+.main1>ul>li
+{
+	margin: 30px 10px 0px 10px;
+	display: inline-block;
+}
+.main2
+{
+	margin: auto;
+	width: 1100px;
+	display: flex;
+	height:200px;
+	flex-direction: row;
+}
+.main2>div
+{
+	flex: 1;
+	overflow: hidden;
+	background: rgb(247,247,247);
+}
+.main2>div:hover
+{
+	background: rgb(9,102,188);
+}
+.main2>div>span
+{
+	position: relative;
+	left: 80px;
+	top: 30px;
+	display: block;
+	width: 50px;
+	height: 100px;
+}
+.main2>div>dd
+{
+	margin: 0 auto;
+	width: 120px;
+	font-size: 20px;
+}
+.span1
+{
+	background: url("../img/back1l.png") no-repeat -10px 0px;
+}
+.span2
+{
+	background: url("../img/back2l.png") no-repeat -20px -10px;
+}
+.span3
+{
+	background: url("../img/back3l.png") no-repeat -17px 5px;
+}
+.span4
+{
+	background: url("../img/back4l.png") no-repeat -20px 5px;
+}
+.span5
+{
+	background: url("../img/back5l.png") no-repeat -10px 5px;
+}
+main>div:nth-child(3)
+{
+	background: aliceblue;
+	width: 1500px;
+	height: 400px;
+	display: flex;
+	margin: 50px auto;
+}
+main>div:nth-child(3)>div:first-of-type
+{
+	flex: 1.2;
+	background: aliceblue;
+}
+main>div:nth-child(3)>div:nth-child(2)
+{
+	margin-left: 40px;
+	flex: 1.2;
+	background: aliceblue;
+}
+main>div:nth-child(3)>div:nth-child(3)
+{
+	margin-left: 40px;
+	flex: 1;
+	background: aliceblue;
+}
+.ul1
+{
+	margin-top: 10px;
+}
+.ul1 a
+{
+	font-size: 20px;
+	font-weight: 600;
+	position: relative;
+	top: -45px;
+	left: 10px;
+	color: black;
+}
+.ul1 a:hover
+{
+	color: red;
+}
+.ul2
+{
+	margin-left: 20px;
+}
+.ul2>li
+{
+	list-style: circle;
+	padding: 15px 0px 10px;
+	border-bottom: #999999 dashed 1px;
+}
+.ul2 a
+{
+	color: #999999;
+}
+.ul2 a:hover
+{
+	color: red;
+}

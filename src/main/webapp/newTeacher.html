@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>教师注册</title>
+		<script src="js/jquery-3.6.0.js"></script>
+		<style>
+			header>div:first-child
+			{
+				display: inline-block;
+				background: url(img/icon11.png) no-repeat;
+				width: 400px;
+				height: 60px;
+			}
+			header>div:last-child
+			{
+				display: inline-block;
+				font-weight: 600;
+				font-size: 20px;
+				height: 50px;
+				position: absolute;
+				top:20px;
+			}
+			header
+			{
+				box-shadow: black 5px 5px;
+			}
+			main
+			{
+				margin-top: 50px;
+				margin-left: 600px;
+			}
+			main>div:not(.box1)
+			{
+				padding: 10px 20px;
+				width:300px;
+				border: 1px #999999 solid;
+			}
+			.cheakbox1
+			{
+				position:relative ;
+				top: 10px;
+				left: -10px;
+			}
+			.submit1
+			{
+				width: 350px;
+				margin-left: 600px;
+				margin-top: 20px;
+				background-color: red;
+				color: white;
+				font-weight:600;
+			}
+			dd
+			{
+				display: inline-block;
+				width: 300px;
+				height: 30px;
+			}
+			span
+			{
+				position: relative;
+				top: 3px;
+				display: inline-block;
+				width: 17px;
+				height: 17px;
+
+			}
+			.box1
+			{
+				margin-left: 10px;
+				border: none;
+			}
+			*
+			{
+				padding: 0px;
+				margin: 0px;
+				font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+			}
+			body
+			{
+				font-family: "微软雅黑";
+				font-size: 15px;
+			}
+			a
+			{
+				text-decoration: none;
+				color: blue;
+			}
+			.clearfix::after
+
+			{
+				content: '.';
+				display: block;
+				height: 0px;
+				clear: both;
+				visibility: hidden;
+			}
+			ul li
+			{
+				list-style: none;
+			}
+			input
+			{
+				margin-left: 20px;
+				outline: none;
+				border: none;
+				height: 30px;
+			}
+			.UserName
+			{
+				margin-left: 20px;
+			}
+          .div1
+		  {
+			  margin-left: 32px;
+		  }
+       .div1314
+	   {
+		   margin-top: 30px;
+	   }
+		</style>
+		<script>
+		          $(function()
+				  {
+					  var user=/^(([\u4e00-\u9fa5])|[a-zA-Z0-9-_]){4,20}$/;
+					  $($('input[type="text"]')[0]).blur(
+					  function(){
+						  
+						  var text1=this.value; 
+						   if(this.value.length==0)
+							{
+								$('.span1').css({
+									'background-image': 'url(img/icon.png)',
+									'background-position':'-17px -100px'
+								})
+								$('.div1').css(
+								{
+
+								 'background-image': 'url(#)',
+								 })
+								var str='不符合要求';
+								 $($('dd')[0]).html(str);
+								 $($('dd')[0]).css(
+								 {
+								 	 'color':'red'
+								 })
+								 }
+								else if(user.test(text1))
+								{
+								var str='';
+								 $($('dd')[0]).html(str);
+								 $('.div1').css(
+								 {
+									 'background-image': 'url(img/icon.png)',
+									 'background-position':'-0px -117px',
+									 'display':'inline-block',
+									 'width':'17px',
+									 'height':'17px',
+									 'postion':'relative',
+									 'left':'1	30px'
+								 }
+								 )
+								 $('.span1').css({
+								 	'background-image': 'url(#)',
+								 	'background-position':'-17px -100px'
+								 })
+								 $($('dd')[0]).html('');
+							}
+							else
+							{
+								var str='不符合要求';
+								$('.span1').css({
+									'background-image': 'url(img/icon.png)',
+									'background-position':'-17px -100px'
+								})
+								$($('dd')[0]).html(str);
+								$($('dd')[0]).css(
+								{
+									 'color':'red'
+								})
+								$('.div1').css(
+								{
+								 'background-image': 'url(#)',
+								 })
+							}
+				  }).focus(function()
+				  {
+					  $('.span1').css({
+					  	'background-image': 'url(img/icon.png)',
+					  	'background-position':'0px -100px',
+
+					  })
+					  var str='支持汉字、字母';
+					   $($('dd')[0]).html(str);
+					   $($('dd')[0]).css(
+					   {
+					   	 'color':'#999999'
+					   })
+					 
+				  })
+				  })
+				  $(function()
+				  {
+					  var user=/^(([\u4e00-\u9fa5])|[a-zA-Z0-9-_]){4,20}$/;
+					  $($('input[type="text"]')[1]).blur(
+							  function(){
+
+								  var text1=this.value;
+								  if(this.value.length==0)
+								  {
+									  $('.span0').css({
+										  'background-image': 'url(img/icon.png)',
+										  'background-position':'-17px -100px'
+									  })
+									  $('.div0').css(
+											  {
+												  'background-image': 'url(#)',
+											  })
+									  var str='不符合要求';
+									  $($('.span01')[0]).html(str);
+									  $($('.span01')[0]).css(
+											  {
+												  'color':'red'
+											  })
+								  }
+								  else if(user.test(text1))
+								  {
+									  var str='';
+									  $($('.span01')[0]).html(str);
+									  $('.div0').css(
+											  {
+												  "margin-left":"35px",
+												  'background-image': 'url(img/icon.png)',
+												  'background-position':'-0px -117px',
+												  'display':'inline-block',
+												  'width':'17px',
+												  'height':'17px',
+												  'postion':'relative',
+												  'left':'1	30px'
+											  }
+									  )
+									  $('.span0').css({
+										  'background-image': 'url(#)',
+										  'background-position':'-17px -100px'
+									  })
+									  $($('.span01')[0]).html('');
+								  }
+								  else
+								  {
+									  var str='不符合要求';
+									  $('.span0').css({
+										  'background-image': 'url(img/icon.png)',
+										  'background-position':'-17px -100px'
+									  })
+									  $($('.span01')[0]).html(str);
+									  $($('.span01')[0]).css(
+											  {
+												  'color':'red'
+											  })
+									  $('.div0').css(
+											  {
+												  'background-image': 'url(#)',
+											  })
+								  }
+							  }).focus(function()
+					  {
+						  $('.span0').css({
+							  'background-image': 'url(img/icon.png)',
+							  'background-position':'0px -100px'
+						  })
+						  var str='请输入你的名字';
+						  $($('.span01')[0]).html(str);
+						  $($('.span01')[0]).css(
+								  {
+									  'color':'#999999'
+								  })
+
+					  })
+				  })
+				  $(function()
+				  {
+				  					  var pwd1=/^(?:\d+|[a-zA-Z]+|[!@#$%^&*]+)$/;
+									  var pwd2=/^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&*]+$)[a-zA-Z\d!@#$%^&*]+$/;
+									  var pwd3=/^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&*]+$)(?![a-zA-z\d]+$)(?![a-zA-z!@#$%^&*]+$)(?![\d!@#$%^&*]+$)[a-zA-Z\d!@#$%^&*]+$/;
+				  					  $($('input[type="password"]')[0]).blur(
+				  					  function(){
+				  						  
+				  						  var text2=this.value; 
+				  						   if(this.value.length==0)
+				  							{
+				  								$('.span2').css({
+				  									'background-image': 'url(img/icon.png)',
+				  									'background-position':'-17px -100px'
+				  								})
+				  								$('.div2').css(
+				  								{
+				  								 'background-image': 'url(#)',
+				  								 })
+				  								var str='密码不能为空';
+				  								 $($('dd')[1]).html(str);
+												 $($('dd')[1]).css(
+												 {
+												 	'color':'red'
+												 })
+				  								 }
+												 else if(this.value.length<6)
+												 {
+													$('.span2').css({
+														'background-image': 'url(img/icon.png)',
+														'background-position':'-17px -100px'
+													}) 
+													var str='密码长度应为6-20之间';
+													 $($('dd')[1]).html(str);
+													 $($('dd')[1]).css(
+													 {
+														 'color':'red'
+													 })
+												 }
+				  								else if(pwd1.test(text2))
+				  								{
+				  								var str='建议使用字母、数字和符号以上的组合,6-20个字符';
+				  								 $($('dd')[1]).html(str);
+												 $($('dd')[1]).css(
+												 {
+												 	'color':'#999999'
+												 })
+				  								 $('.div2').css(
+				  								 {
+				  									 'background-image': 'url(img/icon.png)',
+				  									 'background-position':'-0px -117px',
+				  									 'display':'inline-block',
+				  									 'width':'17px',
+				  									 'height':'17px',
+				  									 'postion':'relative',
+				  									 'left':'130px'
+				  								 }
+				  								 )
+				  								 $('.span2').css({
+				  								 	'background-image': 'url(img/icon.png)',
+				  								 	'background-position':'-17px -134px'
+				  								 })
+				  							}
+											else if(pwd2.test(text2))
+											{
+												var str='建议使用字母、数字和符号以上的组合,6-20个字符';
+												 $($('dd')[1]).html(str);
+												 $($('dd')[1]).css(
+												 {
+												 	'color':'#999999'
+												 })
+												 $('.div2').css(
+												 {
+													 'background-image': 'url(img/icon.png)',
+													 'background-position':'-0px -117px',
+													 'display':'inline-block',
+													 'width':'17px',
+													 'height':'17px',
+													 'postion':'relative',
+													 'left':'130px'
+												 }
+												 )
+												 $('.span2').css({
+												 	'background-image': 'url(img/icon.png)',
+												 	'background-position':'-34px -117px'
+												 })
+											}
+											else if(pwd3.test(text2))
+											{
+												var str='';
+												 $($('dd')[1]).html(str);
+												 $($('dd')[1]).css(
+												 {
+												 	'color':'#999999'
+												 })
+												 $('.div2').css(
+												 {
+													 'background-image': 'url(img/icon.png)',
+													 'background-position':'-0px -117px',
+													 'display':'inline-block',
+													 'width':'17px',
+													 'height':'17px',
+													 'postion':'relative',
+													 'left':'130px'
+												 }
+												 )
+												 $('.span2').css({
+												 	'background-image': '#',
+												 	'background-position':'-34px -134px'
+												 })
+											}
+				  							else
+				  							{
+				  								var str='不符合要求';
+				  								$('.span1').css({
+				  									'background-image': 'url(img/icon.png)',
+				  									'background-position':'-17px -100px'
+				  								})
+				  								$($('dd')[0]).html(str);
+												$($('dd')[1]).css(
+												{
+													'color':'red'
+												})
+				  								$('.div1').css(
+				  								{
+				  								 'background-image': 'url(#)',
+				  								 })
+				  							}
+				  }).focus(function()
+				  {
+				  					  $('.span2').css({
+				  					  	'background-image': 'url(img/icon.png)',
+				  					  	'background-position':'0px -100px'
+				  					  })
+				  					  var str='建议使用字母、数字和符号以上的组合,6-20个字符';
+				  					   $($('dd')[1]).html(str);
+									   $($('dd')[1]).css(
+									   {
+									   	'color':'#999999'
+									   })
+
+				  })
+				  })
+				  $(function()
+				  {
+					 console.log($($('input[type="password"]')[1])) ;
+					 $($('input[type="password"]')[1]).focus(function()
+					 {
+						 $('.span3').css({
+						 	'background-image': 'url(img/icon.png)',
+						 	'background-position':'0px -100px'
+						 })
+						 var str='请再次输入密码';
+						  $($('dd')[2]).html(str);
+						 $($('dd')[2]).css(
+						 {
+						 	'color':'#999999'
+						 })
+					 }).blur(function()
+					 {
+						 var pass=$($('input[type="password"]')[0]).val();
+						 var pass1=$($('input[type="password"]')[1]).val();
+						 if(pass!=pass1)
+						 {
+							 $('.span3').css({
+							 	'background-image': 'url(img/icon.png)',
+							 	'background-position':'-17px -100px'
+							 })
+							 var str='密码两次输入不一致';
+							  $($('dd')[2]).html(str);
+							  $($('dd')[2]).css(
+							  {
+							  	'color':'red'
+							  })
+						 }
+						 else if(pass1.length==0)
+						 {
+							$('.span3').css({
+								'background-image': 'url(img/icon.png)',
+								'background-position':'-17px -100px'
+							})
+							var str='请再次输入密码';
+							 $($('dd')[2]).html(str);
+							 $($('dd')[2]).css(
+							 {
+							 	'color':'red'
+							 }) 
+						 }
+						 else if(pass==pass1)
+						 {
+							 var str='';
+							  $($('dd')[2]).html(str);
+							  $('.div3').css(
+							  {
+							 	 'background-image': 'url(img/icon.png)',
+							 	 'background-position':'-0px -117px',
+							 	 'display':'inline-block',
+							 	 'width':'17px',
+							 	 'height':'17px',
+							 	 'postion':'relative',
+							 	 'left':'1	30px'
+							  }
+							  )
+							  $('.span3').css({
+							  	'background-image': 'url(#)',
+							  	'background-position':'-17px -100px'
+							  })
+						 }
+						 
+					 })
+				  })
+				  $(function()
+				  {
+					  
+					  $('.cheakbox1').blur(function(){
+						  console.log(this.checked);
+						  if(this.checked==false)
+						  {
+							  $('.span4').css({
+							  	'background-image': 'url(img/icon.png)',
+							  	'background-position':'-17px -100px'
+							  })
+							  var str='请同意协议';
+							   $($('dd')[4]).html(str);
+							   $($('dd')[4]).css(
+							   {
+							   	'color':'red'
+							   })
+						  }
+					  })
+				  })
+				  $(function ()
+				  {
+					 $(".submit1").click(function ()
+					 {
+						 var num={
+							 "UserName":$('.UserName').val(),
+							 "id":$('.id').val(),
+							 "pwd":$('.pwd').val(),
+							 "tel":$('.tel').val()
+						 }
+						 $.ajax({
+							 url:"newTeacher.ano",
+							 type:"get",
+							 data:num,
+							 async:"true",
+							 success:function(date)
+							 {
+								 console.log(date);
+								 if (date=="T")
+								 {
+									 window.location.href='teacherLogin.html';
+								 }
+								 else
+								 {
+									 alert("密码错误");
+								 }
+							 }
+						 })
+					 })
+				  })
+		</script>
+	</head>
+	<body>
+		<header>
+			<div></div>
+			<div><font>老师你好!欢迎注册</font></div>
+		</header>
+<table>
+	<main>
+		<div>
+			<label>工号</label>
+			<input type="text" placeholder="请输入工号" class="id" />
+			<div class="div1"></div>
+		</div>
+		<span class="span1"></span><dd></dd>
+		<div class="UserNameBox">
+			姓名<input type="text" placeholder="请输入姓名" class="UserName">
+			<div class="div0"></div>
+		</div>
+		<span class="span0"></span><span class="span01" style="width: 200px"></span>
+		<div>
+			<label>设置密码</label>
+			<input type="password" placeholder="建议至少两种字符组合" class="pwd" />
+			<div class="div2"></div>
+		</div>
+		<span class="span2"></span><dd></dd>
+		<div>
+			<label>确认密码</label>
+			<input type="password" placeholder="请再次输入密码" />
+			<div class="div3"></div>
+		</div>
+		<span class="span3"></span><dd></dd>
+
+		<div>
+			<label>手机验证</label>
+			<input type="tel" placeholder="请输入手机号验证" class="tel"/>
+		</div>
+		<div class="box1">
+			<input class="cheakbox1" type="checkbox" /><font class="font1">我已阅读并同意<a href="#">《实验室管理条例》</a></font>
+		</div>
+		<span class="span4"></span><dd></dd>
+
+	</main>
+	<input class="submit1" type="submit" value="注册" />
+</table>
+	</body>
+</html>

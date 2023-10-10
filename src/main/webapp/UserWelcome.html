@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户主页</title>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/LabelStatusForUser.js"></script>
+    <script src="js/StartLabelForUser.js"></script>
+    <script src="js/StopLabelForUser.js"></script>
+    <script src="js/Information.js"></script>
+    <script src="js/UpdateUserPwd.js"></script>
+    <script src="js/UpdateUserTel.js"></script>
+    <script src="js/UpdateUserAddress.js"></script>
+    <script src="js/deleteUser.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/labelAppointForUser.js"></script>
+    <link rel="shortcut icon" href="#"/>
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="css/teacherWelcome.css"/>
+</head>
+<body>
+<div class="box1">
+    <div class="main1">
+        <div >
+            <img class="logo" src="img/icon1.png"/>
+            <br/>
+            实验室管理系统
+        </div>
+        <ul class="ul1">
+            <li><a href="#">实验室状态查询</a><span style="color: #999999"><</span></li>
+            <li><a href="#">开始使用实验室</a><span style="color: #999999"><</span></li>
+            <li><a href="#">停止使用实验室</a><span style="color: #999999"><</span></li>
+            <li><a href="#">修改密码</a><span style="color: #999999"><</span></li>
+            <li><a href="#">修改手机号</a><span style="color: #999999"><</span></li>
+            <li><a href="#">修改地址</a><span style="color: #999999"><</span></li>
+            <li><a href="#">实验室预约</a><span style="color: #999999"><</span></li>
+        </ul>
+    </div>
+    <div class="main2">
+        <div style="color: black;">
+            <a href="#">
+                 <span class="span1">
+                 </span>
+            </a>
+            <span style="position: relative;top: -20px">&nbsp;注销账户</span>
+            <div>
+                <a href="#">
+                    <span class="span2"></span>
+                </a>
+                &nbsp;通知
+                <a href="#">
+                    <span class="span3"></span>
+                </a>
+                &nbsp;个人
+                <a href="firstPage.html">
+                    <span class="span4"></span>
+                </a>
+                &nbsp;退出
+            </div>
+        </div>
+    </div>
+    <div class="main3">
+            <span style="line-height: 50px;margin-top: 200px">用户你好！
+                欢迎登录</span>
+    </div>
+</div>
+</body>
+<script>
+    $(function ()
+    {
+        console.log("进入1");
+        if (localStorage.getItem("UserName")==null)
+        {
+            alert("请登陆后再次访问该网页");
+            window.location.href="UserLogin.html";
+            console.log("进入2"+localStorage.getItem("UserName"));
+        }
+    })
+</script>
+</html>

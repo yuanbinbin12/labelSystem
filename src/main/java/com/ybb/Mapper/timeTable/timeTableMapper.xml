@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ybb.Mapper.timeTable.timeTableMapper">
+    <resultMap id="TableForStudent" type="timeTableForStudent">
+        <result property="courseId" column="courseId"/>
+        <result property="courseName" column="coursename"/>
+        <result property="labelName" column="llabelName"/>
+        <result property="courseTime" column="coursetime"/>
+        <result property="className" column="cclassName"/>
+        <result property="UserName" column="rUserName"/>
+    </resultMap>
+    <resultMap id="TableForTeacher" type="timeTableForTeacher">
+        <result property="courseId" column="courseId"/>
+        <result property="courseName" column="coursename"/>
+        <result property="labelName" column="llabelName"/>
+        <result property="courseTime" column="coursetime"/>
+        <result property="className" column="cclassName"/>
+    </resultMap>
+<select id="getTableForStudent" resultMap="TableForStudent">
+    SELECT courseId,coursename,l.labelName llabelName,coursetime ,c.className cclassName,r.UserName rUserName FROM timetable t
+    INNER JOIN class_course c
+    ON c.cid=t.cid
+    INNER JOIN teacher r
+    ON t.tid=r.id
+    INNER JOIN labelstatus l
+    ON l.labelId=t.labelId
+    WHERE t.cid=#{cid}
+    ORDER BY t.coursetime ASC
+</select>
+    <select id="getTableForTeacher" resultMap="TableForTeacher">
+        SELECT courseId,coursename,l.labelName llabelName,coursetime ,c.className cclassName FROM timetable t
+        INNER JOIN class_course c
+        ON c.cid=t.cid
+        INNER JOIN teacher r
+        ON t.tid=r.id
+        INNER JOIN labelstatus l
+        ON l.labelId=t.labelId
+        WHERE t.tid=#{tid}
+        ORDER BY t.coursetime ASC
+    </select>
+    <select id="getTableForRoot" resultMap="TableForStudent">
+        SELECT courseId,coursename,l.labelName llabelName,coursetime ,c.className cclassName,r.UserName rUserName FROM timetable t
+                                                                                                                           LEFT JOIN class_course c
+                                                                                                                                     ON c.cid=t.cid
+                                                                                                                           LEFT JOIN teacher r
+                                                                                                                                     ON t.tid=r.id
+                                                                                                                           LEFT JOIN labelstatus l
+                                                                                                                                     ON l.labelId=t.labelId
+        ORDER BY t.coursetime ASC
+    </select>
+    <insert id="addTable" parameterType="timeTable">
+        insert into timetable (coursename,labelId,tid,cid,coursetime) values(#{coursename},#{labelId},#{tid},#{cid},#{coursetime});
+    </insert>
+    <delete id="deleteTable">
+        delete from timetable where coursename=#{coursename} and courseId=#{cid}
+    </delete>
+    <update id="updateTable" parameterType="timeTable">
+        update timetable
+        <set>
+            <if test="labelId!=null">
+                labelId=#{labelId},
+            </if>
+            <if test="tid!=null">
+                tid=#{tid},
+            </if>
+            <if test="cid!=null">
+                cid=#{cid},
+            </if>
+            <if test="coursetime!=null">
+                coursetime=#{coursetime}
+            </if>
+        </set>
+        where  coursename=#{coursename}
+    </update>
+    <select id="getTableByLab" resultType="timeTable">
+        select * from timetable where `labelId`=#{labId}
+    </select>
+</mapper>

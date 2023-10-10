@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ybb.Mapper.Root.RootLoginMapper">
+    <select id="GetQueryRootName"  resultType="Root">
+        select * from root where `UserName`=#{UserName} and id=#{id}
+    </select>
+    <insert id="AddUserForRoot" parameterType="Root">
+        insert into root (id,Root,`UserName`,pwd,tel) values(#{id},#{Root},#{UserName},#{pwd},#{tel})
+    </insert>
+    <update id="UpdateForRoot" parameterType="Root">
+        update root
+     <set>
+         <if test="pwd!=null">
+             pwd=#{pwd},
+         </if>
+         <if test="tel!=null">
+             tel=#{tel}
+         </if>
+    </set>
+    where UserName=#{UserName} and id=#{id}
+    </update>
+    <delete id="DeleteForRoot" parameterType="Root">
+        delete from root where id=#{id} and UserName=#{UserName}
+    </delete>
+</mapper>

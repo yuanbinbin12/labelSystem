@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>首页</title>
+		<link rel="shortcut icon" href="#"/>
+		<script src="js/jquery-3.6.0.js"></script>
+		<script>
+			$(function ()
+			{
+				$.ajax(
+						{
+							url:"TeacherList.ano",
+							type:"post",
+							async:true,
+							dataType:"json",
+							data:{
+								"UserName":"ybb"
+							},
+							success:function (data)
+							{
+								console.log(data);
+								$(".li1").text(data[0].pwd);
+								$(".li2").text(data[0].UserName);
+								$('.li3').text(data[0].tel);
+								$('.li4').text(data[0].Root);
+								$('.li5').text(data[0].id);
+							},
+							error:function ()
+							{
+								alert("1111");
+							}
+						}
+				)
+			})
+		</script>
+	</head>
+	<body>
+		<header>
+			<div>
+				<ul>
+					<li>首页</li>
+					<li class="li1"></li>
+					<li class="li2"></li>
+					<li class="li3"></li>
+					<li class="li4"></li>
+					<li class="li5"></li>
+				</ul>
+			</div>
+		</header>
+	</body>
+</html>

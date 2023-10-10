@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+
+
+    <!-- 自动扫描该包，使Springmvc认为包下使用了@Controller注解的类是控制器 -->
+    <context:component-scan base-package="com.ybb.Controller"/>
+    <!-- 定义文件跳转的前后缀，完成请求和POJO的映射 -->
+    <bean
+            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass"
+                  value="org.springframework.web.servlet.view.JstlView" />
+        <property name="prefix" value="/WEB-INF/view/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+    <!-- 静态资源映射 -->
+    <mvc:resources mapping="/WEB-INF/WebContent/**" location="WEB-INF" />
+
+
+    <!-- <bean id="jsonConverter"
+        class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
+    <bean
+        class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="jsonConverter" />
+            </list>
+        </property>
+    </bean> -->
+    <!-- 自动注册DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter
+        两个bean,是spring MVC为@Controllers分发请求所必须的 -->
+    <mvc:annotation-driven />
+</beans>

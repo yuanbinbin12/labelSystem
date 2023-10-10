@@ -1,0 +1,35 @@
+*
+{
+	padding: 0px;
+	margin: 0px;
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+}
+body
+{
+	font-family: "微软雅黑";
+	font-size: 1;
+}
+a	
+{
+	text-decoration: none;
+	color: blue;
+}
+.clearfix::after
+	
+{
+  content: '.';
+  display: block;
+  height: 0px;
+  clear: both;
+  visibility: hidden;
+}
+ul li
+{
+	list-style: none;
+}
+input
+{
+	outline: none;
+	border: none;
+    height: 30px;
+}

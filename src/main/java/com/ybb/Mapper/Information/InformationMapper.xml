@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ybb.Mapper.Information.InformationMapper">
+    <select id="queryInformationAll" resultType="Information">
+        select * from information
+    </select>
+    <select id="queryInformationById" resultType="Information">
+        select * from information where id=#{id}
+    </select>
+    <update id="updateInformation" parameterType="Information">
+        update information set notice=#{notice} where id=#{id}
+    </update>
+    <insert id="addInformation">
+        insert into information (notice) values (#{notice})
+    </insert>
+    <delete id="deleteInformation">
+        delete from information where id=#{id}
+    </delete>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <!--数据源DateSource使用Spring的mybatis的数据源
+    我们这里直接用Spring1的JDBC
+    -->
+    <import resource="SpringService.xml"/>
+    <import resource="SpringMapper.xml"/>
+    <bean name="RootLoginMapperImpl" class="com.ybb.pojo.Root.RootLoginMapperImpl">
+        <property name="sqlSessionTemplate" ref="sqlSessionByRoot"/>
+    </bean>
+    <bean name="StudentLoginMapperImpl" class="com.ybb.pojo.Student.StudentLoginMapperImpl">
+        <property name="sqlSessionTemplate" ref="sqlSessionByStudent"/>
+    </bean>
+        <bean name="TeacherLoginMapperImpl" class="com.ybb.pojo.Teacher.TeacherLoginMapperImpl" p:sqlSessionTemplate-ref="sqlSessionByTeacher"/>
+   <bean name="LabelStatusMapperImpl" class="com.ybb.pojo.Label.LabelStatusMapperImpl" p:sqlSessionFactory-ref="sqlSessionFactoryByLabel"/>
+    <bean name="UserLoginMapperImpl" class="com.ybb.pojo.User.UserLoginMapperImpl" p:sqlSessionFactory-ref="sqlSessionFactoryByUser"/>
+    <bean name="timeTableMapperImpl" class="com.ybb.pojo.timeTable.timeTableMapperImpl" p:sqlSessionFactory-ref="sqlSessionFactoryByTimeTable"/>
+    <bean name="InformationMapperImpl" class="com.ybb.pojo.Information.InformationMapperImpl" p:sqlSessionFactory-ref="sqlSessionFactoryByInformation"/>
+</beans>
