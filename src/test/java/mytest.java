@@ -43,7 +43,6 @@ public class mytest {
         int i = rootLoginMapper.AddUserForRoot(root);
         if (i != 0) {
             System.out.println("插入成功");
-            System.out.println("hello，修改了");
         }
     }
 
@@ -55,7 +54,6 @@ public class mytest {
         int i = rootLoginMapper.DeleteForRoot(root);
         if (i != 0) {
             System.out.println("删除成功");
-            System.out.println("修改第二次");
         }
     }
 
@@ -66,7 +64,6 @@ public class mytest {
         Root root = new Root(3, "管理员", "ll", "1231231", "3422231");
         int i = rootLoginMapper.UpdateForRoot(root);
         if (i != 0) {
-            System.out.println("修改main分支");
             System.out.println("修改成功");
         }
     }
@@ -77,7 +74,6 @@ public class mytest {
         StudentLoginMapper studentLoginMapper = (StudentLoginMapper) ApplicationContext.getBean("StudentLoginMapperImpl");
         List<Student> students = studentLoginMapper.GetQueryAllStudent();
         for (Student student : students) {
-            System.out.println("修改main分支2");
             System.out.println(student);
         }
 
@@ -88,8 +84,6 @@ public class mytest {
         ApplicationContext ApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         StudentLoginMapper studentLoginMapper = (StudentLoginMapper) ApplicationContext.getBean("StudentLoginMapperImpl");
         Student student = studentLoginMapper.GetQueryStudentName("fx", 2);
-        System.out.println("修改master分支3");
-        System.out.println("修改main分支3");
         System.out.println(student);
     }
 
