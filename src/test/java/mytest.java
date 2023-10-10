@@ -88,6 +88,7 @@ public class mytest {
         ApplicationContext ApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         StudentLoginMapper studentLoginMapper = (StudentLoginMapper) ApplicationContext.getBean("StudentLoginMapperImpl");
         Student student = studentLoginMapper.GetQueryStudentName("fx", 2);
+        System.out.println("修改main分支3");
         System.out.println(student);
     }
 
