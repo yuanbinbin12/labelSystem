@@ -77,6 +77,7 @@ public class mytest {
         StudentLoginMapper studentLoginMapper = (StudentLoginMapper) ApplicationContext.getBean("StudentLoginMapperImpl");
         List<Student> students = studentLoginMapper.GetQueryAllStudent();
         for (Student student : students) {
+            System.out.println("修改main分支2");
             System.out.println(student);
         }
 
