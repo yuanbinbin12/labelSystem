@@ -66,6 +66,7 @@ public class mytest {
         Root root = new Root(3, "管理员", "ll", "1231231", "3422231");
         int i = rootLoginMapper.UpdateForRoot(root);
         if (i != 0) {
+            System.out.println("修改main分支");
             System.out.println("修改成功");
         }
     }
