@@ -55,6 +55,7 @@ public class mytest {
         int i = rootLoginMapper.DeleteForRoot(root);
         if (i != 0) {
             System.out.println("删除成功");
+            System.out.println("修改第二次");
         }
     }
 
